@@ -1,0 +1,15 @@
+/Users/saniyahsmith/BankAccountSimulator/obj/Debug/net10.0/BankAccountSimulator.GeneratedMSBuildEditorConfig.editorconfig
+/Users/saniyahsmith/BankAccountSimulator/obj/Debug/net10.0/BankAccountSimulator.AssemblyInfoInputs.cache
+/Users/saniyahsmith/BankAccountSimulator/obj/Debug/net10.0/BankAccountSimulator.AssemblyInfo.cs
+/Users/saniyahsmith/BankAccountSimulator/obj/Debug/net10.0/BankAccountSimulator.csproj.CoreCompileInputs.cache
+/Users/saniyahsmith/BankAccountSimulator/obj/Debug/net10.0/BankAccountSimulator.sourcelink.json
+/Users/saniyahsmith/BankAccountSimulator/bin/Debug/net10.0/BankAccountSimulator
+/Users/saniyahsmith/BankAccountSimulator/bin/Debug/net10.0/BankAccountSimulator.deps.json
+/Users/saniyahsmith/BankAccountSimulator/bin/Debug/net10.0/BankAccountSimulator.runtimeconfig.json
+/Users/saniyahsmith/BankAccountSimulator/bin/Debug/net10.0/BankAccountSimulator.dll
+/Users/saniyahsmith/BankAccountSimulator/bin/Debug/net10.0/BankAccountSimulator.pdb
+/Users/saniyahsmith/BankAccountSimulator/obj/Debug/net10.0/BankAccountSimulator.dll
+/Users/saniyahsmith/BankAccountSimulator/obj/Debug/net10.0/refint/BankAccountSimulator.dll
+/Users/saniyahsmith/BankAccountSimulator/obj/Debug/net10.0/BankAccountSimulator.pdb
+/Users/saniyahsmith/BankAccountSimulator/obj/Debug/net10.0/BankAccountSimulator.genruntimeconfig.cache
+/Users/saniyahsmith/BankAccountSimulator/obj/Debug/net10.0/ref/BankAccountSimulator.dll
