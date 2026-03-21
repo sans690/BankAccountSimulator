@@ -2,10 +2,10 @@ using System;
 
 class Menu
 {
-    // might try to do this with sql server management, but on mac
+    // might try to do this with sql server management, but on mac right now
 
     // card have card number and card pin
-    List<List<int>> cardsList =[[001,123]];
+    List<List<int>> cardsList = [[001, 123]];
 
 
     public static void Run(string[] args)
@@ -18,7 +18,7 @@ class Menu
         bool isValidCardNumber = false;
         bool isValidMatchingPin = false;
         Users user = new Users();
-        Console.WriteLine("Welcome to the bank");
+        Console.WriteLine("\nWelcome to the bank");
 
         Console.WriteLine("Please enter your card number");
         string? cardNumber = Console.ReadLine();
