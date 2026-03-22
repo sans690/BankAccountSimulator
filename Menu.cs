@@ -3,9 +3,7 @@ using System;
 class Menu
 {
     // might try to do this with sql server management, but on mac right now
-
-    // card have card number and card pin
-    List<List<int>> cardsList = [[001, 123]];
+    static List<List<int>> cardsList = [[001, 123], [002, 111]];
 
 
     public static void Run(string[] args)
@@ -25,31 +23,37 @@ class Menu
         int.TryParse(cardNumber, out int cardNumberInt);
         user.cardNumber = cardNumberInt;
 
-        // need to check if this is a valid card number
+
+        for (int i = 0; i < cardsList.Count; i++)
+        {
+            if (cardsList[i][0] == cardNumberInt)
+            {
+                isValidCardNumber = true;
+            }
+        }
 
         if (!isValidCardNumber)
         {
             throw new ArgumentException("Input not found in list");
         }
 
-
-
-
         Console.WriteLine("Please enter your card pin");
         string? cardPin = Console.ReadLine();
         int.TryParse(cardPin, out int cardPinInt);
         user.cardPin = cardPinInt;
 
-        // need to check if this is valid pin
-
-        // if both isValidCardNumber and isValidCardPin are true, then welcome the user by name
+        for (int i = 0; i < cardsList.Count; i++)
+        {
+            if (cardsList[i][1] == cardPinInt)
+            {
+                isValidMatchingPin = true;
+            }
+        }
 
         if (!isValidMatchingPin)
         {
             throw new ArgumentException("Input not found in list");
         }
-
-
 
         if (isValidCardNumber && isValidMatchingPin)
         {
