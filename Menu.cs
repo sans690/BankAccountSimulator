@@ -3,39 +3,26 @@ using System;
 class Menu
 {
     // might try to do this with sql server management, but on mac right now
-    static List<List<int>> cardsList = [[001, 123], [002, 111]];
+    static List<List<int>> cardsList = [[1, 123, 1000], [2, 111, 50]];
+
+    static Users user = new Users();
 
 
     public static void Run(string[] args)
     {
-        selectionOptions();
+        selectionOptions(user);
     }
 
-    public static void selectionOptions()
+    public static void selectionOptions(Users user)
     {
-        bool isValidCardNumber = false;
-        bool isValidMatchingPin = false;
-        Users user = new Users();
+        bool isValid = false;
+        user = new Users();
         Console.WriteLine("\nWelcome to the bank");
 
         Console.WriteLine("Please enter your card number");
         string? cardNumber = Console.ReadLine();
         int.TryParse(cardNumber, out int cardNumberInt);
         user.cardNumber = cardNumberInt;
-
-
-        for (int i = 0; i < cardsList.Count; i++)
-        {
-            if (cardsList[i][0] == cardNumberInt)
-            {
-                isValidCardNumber = true;
-            }
-        }
-
-        if (!isValidCardNumber)
-        {
-            throw new ArgumentException("Input not found in list");
-        }
 
         Console.WriteLine("Please enter your card pin");
         string? cardPin = Console.ReadLine();
@@ -44,18 +31,20 @@ class Menu
 
         for (int i = 0; i < cardsList.Count; i++)
         {
-            if (cardsList[i][1] == cardPinInt)
+            if (cardsList[i][0] == cardNumberInt && cardsList[i][1] == cardPinInt)
             {
-                isValidMatchingPin = true;
+                isValid = true;
+                user.balance = cardsList[i][2];
+                // Console.WriteLine(user.balance);
             }
         }
 
-        if (!isValidMatchingPin)
+        if (!isValid)
         {
             throw new ArgumentException("Input not found in list");
         }
 
-        if (isValidCardNumber && isValidMatchingPin)
+        if (isValid)
         {
             Console.WriteLine("Please select from the options listed below");
             Console.WriteLine("1. Check balance");
@@ -70,7 +59,7 @@ class Menu
                 case "1":
                     try
                     {
-                        Balance.checkBalance();
+                        Balance.checkBalance(user);
                     }
                     catch (ArgumentException ex)
                     {

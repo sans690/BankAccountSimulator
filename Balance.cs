@@ -2,11 +2,11 @@ using System;
 
 class Balance
 {
-    public static void checkBalance()
+    public static void checkBalance(Users user)
     {
 
+        Console.WriteLine($"{user.balance}");
     }
-
     public static void withdraw()
     {
 
