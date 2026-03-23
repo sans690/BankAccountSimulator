@@ -13,3 +13,7 @@
 /Users/saniyahsmith/BankAccountSimulator/obj/Debug/net10.0/BankAccountSimulator.pdb
 /Users/saniyahsmith/BankAccountSimulator/obj/Debug/net10.0/BankAccountSimulator.genruntimeconfig.cache
 /Users/saniyahsmith/BankAccountSimulator/obj/Debug/net10.0/ref/BankAccountSimulator.dll
+/Users/saniyahsmith/BankAccountSimulator/bin/Debug/net10.0/Microsoft.Extensions.AI.Abstractions.dll
+/Users/saniyahsmith/BankAccountSimulator/bin/Debug/net10.0/OllamaSharp.dll
+/Users/saniyahsmith/BankAccountSimulator/obj/Debug/net10.0/BankAccountSimulator.csproj.AssemblyReference.cache
+/Users/saniyahsmith/BankAccountSimulator/obj/Debug/net10.0/BankAcco.38DE5296.Up2Date

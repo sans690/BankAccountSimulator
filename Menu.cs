@@ -50,8 +50,9 @@ class Menu
             Console.WriteLine("1. Check balance");
             Console.WriteLine("2. Withdraw amount");
             Console.WriteLine("3. Deposit amount");
-            Console.WriteLine("4. Self Destruct?");
-            Console.WriteLine("5. Exit");
+            Console.WriteLine("4. Self destruct?");
+            Console.WriteLine("5. Need help?");
+            Console.WriteLine("6. Exit");
             string? option = Console.ReadLine();
 
             switch (option)
@@ -101,6 +102,18 @@ class Menu
                     break;
 
                 case "5":
+                    try
+                    {
+                        ChatBot.Chat();
+                    }
+
+                    catch
+                    {
+
+                    }
+                    break;
+
+                case "6":
                     Environment.Exit(0);
                     break;
             }

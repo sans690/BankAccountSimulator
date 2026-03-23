@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "fwwBMkUwgkQ=",
+  "dgSpecHash": "uj1SC21n0w4=",
   "success": true,
   "projectFilePath": "/Users/saniyahsmith/BankAccountSimulator/BankAccountSimulator.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/Users/saniyahsmith/.nuget/packages/microsoft.extensions.ai.abstractions/10.4.0/microsoft.extensions.ai.abstractions.10.4.0.nupkg.sha512",
+    "/Users/saniyahsmith/.nuget/packages/ollamasharp/5.4.24/ollamasharp.5.4.24.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -7,8 +7,30 @@
   "targets": {
     ".NETCoreApp,Version=v10.0": {
       "BankAccountSimulator/1.0.0": {
+        "dependencies": {
+          "OllamaSharp": "5.4.24"
+        },
         "runtime": {
           "BankAccountSimulator.dll": {}
+        }
+      },
+      "Microsoft.Extensions.AI.Abstractions/10.4.0": {
+        "runtime": {
+          "lib/net10.0/Microsoft.Extensions.AI.Abstractions.dll": {
+            "assemblyVersion": "10.4.0.0",
+            "fileVersion": "10.400.26.16002"
+          }
+        }
+      },
+      "OllamaSharp/5.4.24": {
+        "dependencies": {
+          "Microsoft.Extensions.AI.Abstractions": "10.4.0"
+        },
+        "runtime": {
+          "lib/net10.0/OllamaSharp.dll": {
+            "assemblyVersion": "5.4.24.0",
+            "fileVersion": "5.4.24.0"
+          }
         }
       }
     }
@@ -18,6 +40,20 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Microsoft.Extensions.AI.Abstractions/10.4.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-t3S2H4do4YeNheIfE3GEl3MnKIrnxpbLu7a88spfApYR3in9ddhIq/GMtxgMaFjn/PUMTCFv5YH7Y6Q91dsDXQ==",
+      "path": "microsoft.extensions.ai.abstractions/10.4.0",
+      "hashPath": "microsoft.extensions.ai.abstractions.10.4.0.nupkg.sha512"
+    },
+    "OllamaSharp/5.4.24": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-h+E482EirorYOddvsujHYXbD9nk9vZosCv/5VRcgyewvDPgLcCUgsWFX1DXK0fU+gqb9gxR9dnyHJ+eZ4NTcrA==",
+      "path": "ollamasharp/5.4.24",
+      "hashPath": "ollamasharp.5.4.24.nupkg.sha512"
     }
   }
 }
