@@ -10,13 +10,90 @@ class Menu
 
     public static void Run(string[] args)
     {
-        selectionOptions(user);
+        verifyAccount(user);
     }
+
 
     public static void selectionOptions(Users user)
     {
+        Console.WriteLine("Please select from the options listed below");
+        Console.WriteLine("1. Check balance");
+        Console.WriteLine("2. Withdraw amount");
+        Console.WriteLine("3. Deposit amount");
+        Console.WriteLine("4. Self destruct?");
+        Console.WriteLine("5. Need help?");
+        Console.WriteLine("6. Exit");
+        string? option = Console.ReadLine();
+
+        switch (option)
+        {
+            case "1":
+                try
+                {
+                    Balance.checkBalance(user);
+                }
+                catch (ArgumentException ex)
+                {
+                    Console.WriteLine($"{ex.Message}");
+                }
+                break;
+
+            case "2":
+                try
+                {
+                    Balance.withdraw(user);
+                    verifyAccount(user);
+                }
+                catch (InvalidOperationException ex)
+                {
+                    Console.WriteLine($"{ex.Message}");
+                }
+                break;
+
+            case "3":
+                try
+                {
+                    Balance.deposit();
+                }
+                catch (InvalidOperationException ex)
+                {
+                    Console.WriteLine($"{ex.Message}");
+                }
+                break;
+
+            case "4":
+                try
+                {
+                    Balance.getRobbed();
+                }
+                catch
+                {
+
+                }
+                break;
+
+            case "5":
+                try
+                {
+                    ChatBot.Chat();
+                }
+
+                catch
+                {
+
+                }
+                break;
+
+            case "6":
+                Environment.Exit(0);
+                break;
+        }
+    }
+
+
+    public static void verifyAccount(Users user)
+    {
         bool isValid = false;
-        user = new Users();
         Console.WriteLine("\nWelcome to the bank");
 
         Console.WriteLine("Please enter your card number");
@@ -46,77 +123,7 @@ class Menu
 
         if (isValid)
         {
-            Console.WriteLine("Please select from the options listed below");
-            Console.WriteLine("1. Check balance");
-            Console.WriteLine("2. Withdraw amount");
-            Console.WriteLine("3. Deposit amount");
-            Console.WriteLine("4. Self destruct?");
-            Console.WriteLine("5. Need help?");
-            Console.WriteLine("6. Exit");
-            string? option = Console.ReadLine();
-
-            switch (option)
-            {
-                case "1":
-                    try
-                    {
-                        Balance.checkBalance(user);
-                    }
-                    catch (ArgumentException ex)
-                    {
-                        Console.WriteLine($"{ex.Message}");
-                    }
-                    break;
-
-                case "2":
-                    try
-                    {
-                        Balance.withdraw();
-                    }
-                    catch (InvalidOperationException ex)
-                    {
-                        Console.WriteLine($"{ex.Message}");
-                    }
-                    break;
-
-                case "3":
-                    try
-                    {
-                        Balance.deposit();
-                    }
-                    catch (InvalidOperationException ex)
-                    {
-                        Console.WriteLine($"{ex.Message}");
-                    }
-                    break;
-
-                case "4":
-                    try
-                    {
-                        Balance.getRobbed();
-                    }
-                    catch
-                    {
-
-                    }
-                    break;
-
-                case "5":
-                    try
-                    {
-                        ChatBot.Chat();
-                    }
-
-                    catch
-                    {
-
-                    }
-                    break;
-
-                case "6":
-                    Environment.Exit(0);
-                    break;
-            }
+            selectionOptions(user);
         }
     }
 }
