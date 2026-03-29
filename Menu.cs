@@ -3,16 +3,16 @@ using System;
 class Menu
 {
     // might try to do this with sql server management, but on mac right now
+
+
     static List<List<int>> cardsList = [[1, 123, 1000], [2, 111, 50]];
 
     static Users user = new Users();
-
 
     public static void Run(string[] args)
     {
         verifyAccount(user);
     }
-
 
     public static void selectionOptions(Users user)
     {
@@ -30,7 +30,8 @@ class Menu
             case "1":
                 try
                 {
-                    Balance.checkBalance(user);
+                    user.balance = Balance.checkBalance(user);
+                    verifyAccount(user);
                 }
                 catch (ArgumentException ex)
                 {
@@ -41,8 +42,27 @@ class Menu
             case "2":
                 try
                 {
-                    Balance.withdraw(user);
-                    verifyAccount(user);
+
+
+
+
+
+
+
+                    
+
+                        user.balance = Balance.withdraw(user);
+                    for (int i = 0; i < cardsList.Count; i++)
+                    {
+                        cardsList[i][2] = user.balance;
+                    }
+
+
+
+
+
+
+
                 }
                 catch (InvalidOperationException ex)
                 {
@@ -89,7 +109,6 @@ class Menu
                 break;
         }
     }
-
 
     public static void verifyAccount(Users user)
     {
