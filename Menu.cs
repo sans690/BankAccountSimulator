@@ -1,4 +1,5 @@
 using System;
+using System.Reflection.Metadata;
 
 class Menu
 {
@@ -14,99 +15,107 @@ class Menu
         verifyAccount(user);
     }
 
+
     public static void selectionOptions(Users user)
     {
-        Console.WriteLine("Please select from the options listed below");
-        Console.WriteLine("1. Check balance");
-        Console.WriteLine("2. Withdraw amount");
-        Console.WriteLine("3. Deposit amount");
-        Console.WriteLine("4. Self destruct?");
-        Console.WriteLine("5. Need help?");
-        Console.WriteLine("6. Exit");
-        string? option = Console.ReadLine();
+        bool keepRunning = false;
 
-        switch (option)
+        while (true)
         {
-            case "1":
-                try
-                {
-                    user.balance = Balance.checkBalance(user);
-                    verifyAccount(user);
-                }
-                catch (ArgumentException ex)
-                {
-                    Console.WriteLine($"{ex.Message}");
-                }
-                break;
+            Console.WriteLine("Please select from the options listed below");
+            Console.WriteLine("1. Check balance");
+            Console.WriteLine("2. Withdraw amount");
+            Console.WriteLine("3. Deposit amount");
+            Console.WriteLine("4. Self destruct?");
+            Console.WriteLine("5. Need help?");
+            Console.WriteLine("6. Exit");
+            string? options = Console.ReadLine();
 
-            case "2":
-                try
-                {
-
-
-
-
-
-
-
-                    
-
-                        user.balance = Balance.withdraw(user);
-                    for (int i = 0; i < cardsList.Count; i++)
+            switch (options)
+            {
+                case "1":
+                    try
                     {
-                        cardsList[i][2] = user.balance;
+                        user.balance = Balance.checkBalance(user);
+                        do
+                        {
+                            Console.WriteLine("Do you want to do another transactions?: ");
+                            Console.WriteLine("Enter y for yes and n for no");
+                            string? moreOptions = Console.ReadLine()?.ToLower();
+
+                            if (moreOptions == "y")
+                            {
+                                keepRunning = true;
+                            }
+                            else if (moreOptions == "n")
+                            {
+                                keepRunning = true;
+                                Console.WriteLine("Have a good day");
+                                Environment.Exit(0);
+                            }
+                        }
+                        while (!keepRunning);
+                    }
+                    catch (ArgumentException ex)
+                    {
+                        Console.WriteLine($"{ex.Message}");
+                    }
+                    break;
+
+                case "2":
+                    try
+                    {
+                        user.balance = Balance.withdraw(user);
+                        for (int i = 0; i < cardsList.Count; i++)
+                        {
+                            cardsList[i][2] = user.balance;
+                        }
+                    }
+                    catch (InvalidOperationException ex)
+                    {
+                        Console.WriteLine($"{ex.Message}");
+                    }
+                    break;
+
+                case "3":
+                    try
+                    {
+                        Balance.deposit();
+                    }
+                    catch (InvalidOperationException ex)
+                    {
+                        Console.WriteLine($"{ex.Message}");
+                    }
+                    break;
+
+                case "4":
+                    try
+                    {
+                        Balance.getRobbed();
+                    }
+                    catch
+                    {
+
+                    }
+                    break;
+
+                case "5":
+                    try
+                    {
+                        ChatBot.Chat();
                     }
 
+                    catch
+                    {
 
+                    }
+                    break;
 
-
-
-
-
-                }
-                catch (InvalidOperationException ex)
-                {
-                    Console.WriteLine($"{ex.Message}");
-                }
-                break;
-
-            case "3":
-                try
-                {
-                    Balance.deposit();
-                }
-                catch (InvalidOperationException ex)
-                {
-                    Console.WriteLine($"{ex.Message}");
-                }
-                break;
-
-            case "4":
-                try
-                {
-                    Balance.getRobbed();
-                }
-                catch
-                {
-
-                }
-                break;
-
-            case "5":
-                try
-                {
-                    ChatBot.Chat();
-                }
-
-                catch
-                {
-
-                }
-                break;
-
-            case "6":
-                Environment.Exit(0);
-                break;
+                case "6":
+                    Console.WriteLine("Have a good day!");
+                    Environment.Exit(0);
+                    break;
+            }
         }
     }
 
