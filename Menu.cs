@@ -16,11 +16,30 @@ class Menu
     }
 
 
+    public static bool yesOrNo(string message)
+    {
+        while (true)
+        {
+            Console.WriteLine(message);
+            Console.WriteLine("Enter y for yes and n for no");
+            string? options = Console.ReadLine()?.ToLower();
+
+            if (options == "y")
+            {
+                return true;
+            }
+            if (options == "n")
+            {
+                return false;
+            }
+            Console.WriteLine("Invalid input, please enter y or n");
+        }
+    }
+
     public static void selectionOptions(Users user)
     {
-        bool keepRunning = false;
-
-        while (true)
+        bool continueTransactions = true;
+        while (continueTransactions)
         {
             Console.WriteLine("Please select from the options listed below");
             Console.WriteLine("1. Check balance");
@@ -37,24 +56,6 @@ class Menu
                     try
                     {
                         user.balance = Balance.checkBalance(user);
-                        do
-                        {
-                            Console.WriteLine("Do you want to do another transactions?: ");
-                            Console.WriteLine("Enter y for yes and n for no");
-                            string? moreOptions = Console.ReadLine()?.ToLower();
-
-                            if (moreOptions == "y")
-                            {
-                                keepRunning = true;
-                            }
-                            else if (moreOptions == "n")
-                            {
-                                keepRunning = true;
-                                Console.WriteLine("Have a good day");
-                                Environment.Exit(0);
-                            }
-                        }
-                        while (!keepRunning);
                     }
                     catch (ArgumentException ex)
                     {
@@ -113,9 +114,13 @@ class Menu
 
                 case "6":
                     Console.WriteLine("Have a good day!");
-                    Environment.Exit(0);
+                    return;
+
+                default:
+                    Console.WriteLine("Invalid user input");
                     break;
             }
+            continueTransactions = yesOrNo("Do you want to make another transaction?");
         }
     }
 
