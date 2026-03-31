@@ -6,7 +6,7 @@ class Menu
     // might try to do this with sql server management, but on mac right now
 
 
-    static List<List<int>> cardsList = [[1, 123, 1000], [2, 111, 50]];
+    static List<List<int>> cardsList = [[1, 111, 100], [2, 222, 50], [3, 333, 0]];
 
     static Users user = new Users();
 
@@ -81,7 +81,13 @@ class Menu
                 case "3":
                     try
                     {
-                        Balance.deposit();
+                        user.balance = Balance.deposit(user);
+
+                        for (int i = 0; i < cardsList.Count; i++)
+                        {
+                            cardsList[i][2] = user.balance;
+                            Console.WriteLine(cardsList[i][2]);
+                        }
                     }
                     catch (InvalidOperationException ex)
                     {
@@ -105,7 +111,6 @@ class Menu
                     {
                         ChatBot.Chat();
                     }
-
                     catch
                     {
 
@@ -141,7 +146,7 @@ class Menu
 
         for (int i = 0; i < cardsList.Count; i++)
         {
-            if (cardsList[i][0] == cardNumberInt && cardsList[i][1] == cardPinInt)
+            if (cardsList[i][0] == user.cardNumber && cardsList[i][1] == user.cardPin)
             {
                 isValid = true;
                 user.balance = cardsList[i][2];

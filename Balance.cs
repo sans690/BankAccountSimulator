@@ -22,14 +22,26 @@ class Balance
             user.balance = result;
 
             Console.WriteLine($"Taking ${amountInt} from your account");
-            Console.WriteLine($"Remaining Balance: ${user.balance}");
+            Console.WriteLine($"Balance: ${user.balance}");
         }
         return user.balance;
     }
 
-    public static void deposit()
+    public static int deposit(Users user)
     {
 
+        Console.WriteLine("How much would you like to enter into your account:");
+        string? amount = Console.ReadLine();
+        int.TryParse(amount, out int amountInt);
+        user.balance = user.balance + amountInt;
+        Console.WriteLine($"Balance: {user.balance}");
+        
+
+
+
+
+
+        return user.balance;
     }
 
     public static void getRobbed()
